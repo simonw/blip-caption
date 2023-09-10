@@ -1,0 +1,28 @@
+[project]
+name = "blip-caption"
+version = "0.1"
+description = "Generate captions for images with Salesforce BLIP"
+readme = "README.md"
+authors = [{name = "Simon Willison"}]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha"
+]
+
+dependencies = [
+    "transformers",
+    "click",
+    "torch",
+    "pillow",
+]
+
+[project.urls]
+Homepage = "https://github.com/simonw/blip-caption"
+Changelog = "https://github.com/simonw/blip-caption/releases"
+Issues = "https://github.com/simonw/blip-caption/issues"
+
+[project.scripts]
+blip-caption = "blip_caption:cli"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-mock"]
