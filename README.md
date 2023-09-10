@@ -57,8 +57,8 @@ The `--json` flag changes the output to look like this:
 ```
 blip-caption /tmp/photos/*.* --json
 ```
-```bash
-[{"path": "/tmp/photos/IMG_2146.jpeg", "caption": "a man holding a bowl of salad and laughing"},,
+```json
+[{"path": "/tmp/photos/IMG_2146.jpeg", "caption": "a man holding a bowl of salad and laughing"},
  {"path": "/tmp/photos/IMG_0151.jpeg", "caption": "a cat laying on a red blanket"},
  {"path": "/tmp/photos/IMG_3099.MOV", "error": "cannot identify image file '/tmp/photos/IMG_3099.MOV'"}]
 ```
