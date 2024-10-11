@@ -36,6 +36,12 @@ Example output:
 ```
 there is a chamelon sitting on a branch in the woods
 ```
+
+The model can also be run on the GPU using the `--gpu` flag
+```bash
+blip-caption IMG_5825.jpeg --gpu
+```
+
 Here's [the image I used](https://static.simonwillison.net/static/2023/IMG_5924.jpeg):
 
 ![It is ineded a chameleon](https://static.simonwillison.net/static/2023/IMG_5924.jpeg)

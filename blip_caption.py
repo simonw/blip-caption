@@ -1,6 +1,7 @@
 import click
 import json
 import PIL
+import torch
 from transformers import pipeline
 
 
@@ -11,11 +12,20 @@ from transformers import pipeline
     nargs=-1,
     required=True,
 )
+@click.option("gpu","--gpu", is_flag=True, default=False, help="Run the model on a GPU")
 @click.option("--large", is_flag=True, help="Use the large model")
 @click.option("json_", "--json", is_flag=True, help="Output as JSON")
-def cli(paths, large, json_):
+def cli(paths, large, gpu, json_):
+    device = -1
+    if gpu:
+        if torch.cuda.is_available():
+            device = 0
+        else:
+            click.echo("No GPU available despite specifying --gpu. Defaulting to CPU")
+            
     captioner = pipeline(
         "image-to-text",
+        device=device,
         model="Salesforce/blip-image-captioning-base"
         if not large
         else "Salesforce/blip-image-captioning-large",
